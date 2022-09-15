@@ -8,7 +8,11 @@ gem 'rails', '~> 6.0.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+<<<<<<< HEAD
 gem 'puma', '~> 4.1'
+=======
+gem 'puma', '~>5.6.4 ' #4.1
+>>>>>>> 4d3f1b4fb21e2d36dbfab3117a0d89ef7f0184c2
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -28,15 +32,25 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+<<<<<<< HEAD
 gem 'bulma-rails', '~>0.7.4'
 
 gem 'bulma-extensions-rails', '~>1.0.30'
 
+=======
+>>>>>>> 4d3f1b4fb21e2d36dbfab3117a0d89ef7f0184c2
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+<<<<<<< HEAD
+=======
+gem 'bulma-rails', '~>0.7.4'
+
+gem 'bulma-extensions-rails', '~>1.0.30'
+
+>>>>>>> 4d3f1b4fb21e2d36dbfab3117a0d89ef7f0184c2
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'

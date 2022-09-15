@@ -9,8 +9,12 @@
     "jquery": "^3.6.1",
     "turbolinks": "^5.2.0"
   },
+<<<<<<< HEAD
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.11.0"
   }
+=======
+  "version": "0.1.0"
+>>>>>>> 4d3f1b4fb21e2d36dbfab3117a0d89ef7f0184c2
 }
