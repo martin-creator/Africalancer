@@ -1,7 +1,7 @@
 <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <h1>Africalancer</h1>
+      <h1 class="title is-4">Africalancer</h1>
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -25,21 +25,24 @@
     <div class="navbar-end">
       <a class="navbar-item">Post Gig</a>
       <a class="navbar-item">Browse Gig</a>
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary"><strong>Sign up</strong></a>
-          <a class="button is-light">Log in</a>
+      <% if (!user_signed_in?) %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
+            <%= link_to 'Login ', new_user_session_path, class: "button is-light" %>
+          </div>
         </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-item">Martin Lubowa</a>
-        <div class="navbar-dropdown">
-          <a href="" class="navbar-item">Profile</a>
-          <a href="" class="navbar-item">Dashboard</a>
-          <hr class="navbar-divider">
-          <a href="" class="navbar-item">Log out</a>
+      <% else %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item"><%= current_user.email %></a>
+          <div class="navbar-dropdown">
+          <%= link_to 'Profile ', edit_user_registration_path, class: "navbar-item" %>
+            <a href="" class="navbar-item">Dashboard</a>
+            <hr class="navbar-divider">
+            <%= link_to 'Logout ', destroy_user_session_path, method: :delete, class: "navbar-item" %>
+          </div>
         </div>
-      </div>
+      <%end%>
     </div>
   </div>
 </div>
