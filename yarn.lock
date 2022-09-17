@@ -4325,7 +4325,7 @@ jest-worker@^25.4.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.6.1:
+jquery@>=1.12.0, jquery@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.1.tgz#fab0408f8b45fc19f956205773b62b292c147a16"
   integrity sha512-opJeO4nCucVnsjiXOE+/PcCgYw9Gwpvs/a6B1LL/lQhwWwpbVEVYDZ1FokFr8PRc7ghYlrFPuyHuiiDNTQxmcw==
@@ -5039,6 +5039,11 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
+
+noty@^3.2.0-beta-deprecated:
+  version "3.2.0-beta-deprecated"
+  resolved "https://registry.yarnpkg.com/noty/-/noty-3.2.0-beta-deprecated.tgz#f74126808b40ba11d7cea3eefc836b32ff7a30f2"
+  integrity sha512-ntRbHuQ9SnnnVFZm/oq5L1DBCaHQUvsU24AwZH3PGjAWx2YqR/IhOadMk11vmJovYiQo00oqTj6Hp+D6PGtmLA==
 
 npm-run-path@^4.0.1:
   version "4.0.1"
@@ -7394,6 +7399,13 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toastr@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.4.tgz#8b43be64fb9d0c414871446f2db8e8ca4e95f181"
+  integrity sha512-LIy77F5n+sz4tefMmFOntcJ6HL0Fv3k1TDnNmFZ0bU/GcvIIfy6eG2v7zQmMiYgaalAiUv75ttFrPn5s0gyqlA==
+  dependencies:
+    jquery ">=1.12.0"
 
 toidentifier@1.0.1:
   version "1.0.1"

@@ -7,6 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+global.toastr = require("toastr")
+// require("stylesheets/application.scss") = import "../stylesheets/application"
+
+// window.Noty = require("noty")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
