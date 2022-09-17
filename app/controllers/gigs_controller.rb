@@ -11,13 +11,13 @@ class GigsController < ApplicationController
   end
 
   def create
-    @gigs = current_user.gigs.build(gig_params)
+    @gig = current_user.gigs.build(gig_params)
 
     if @gig.save
       @gig.pricings.create(Pricing.pricing_types.values.map{ |x| {pricing_type: x}})
       redirect_to edit_gig_path(@gig), notice: "Saved..."
     else
-      redirect_to request.referrer, flash: {error: @gig,errors.full_messages }
+      redirect_to request.referrer, flash: {error: @gig.errors.full_messages }
     end
   end
 

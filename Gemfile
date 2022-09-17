@@ -47,6 +47,8 @@ gem 'omniauth', '~> 1.9'
 #gem 'omniauth-facebook', '=5.0.0'
 gem 'omniauth-facebook', '~> 5.0'
 
+gem 'faker', '~> 1.9'
+
 
 
 group :development, :test do
