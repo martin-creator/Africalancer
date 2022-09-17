@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  root 'pages#home'
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show'
 
   post '/users/edit', to: 'users#update'
-  root 'pages#home'
+  
+
+  resources :gigs
 
   devise_for :users,
               path: '',
