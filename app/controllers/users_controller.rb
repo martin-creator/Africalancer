@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def dashboard
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = current_user
     if @user.update_attributes(current_user_params)

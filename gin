@@ -1,0 +1,27 @@
+                                           List of databases
+           Name           |    Owner     | Encoding | Collate |  Ctype  |       Access privileges       
+--------------------------+--------------+----------+---------+---------+-------------------------------
+ Africalancer_development | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ Africalancer_test        | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MartinLubowa             | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ bookshelf                | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | =Tc/martinlubowa             +
+                          |              |          |         |         | martinlubowa=CTc/martinlubowa+
+                          |              |          |         |         | student=CTc/martinlubowa
+ bookshelf_test           | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | =Tc/martinlubowa             +
+                          |              |          |         |         | martinlubowa=CTc/martinlubowa+
+                          |              |          |         |         | student=CTc/martinlubowa
+ example                  | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ fyyur                    | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ plantdb                  | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ plants                   | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ postgres                 | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | 
+ template0                | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres                  +
+                          |              |          |         |         | postgres=CTc/postgres
+ template1                | postgres     | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres                  +
+                          |              |          |         |         | postgres=CTc/postgres
+ todoapp                  | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ trivia                   | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ trivia_test              | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+ udacity_trivia           | martinlubowa | UTF8     | C.UTF-8 | C.UTF-8 | 
+(16 rows)
+
