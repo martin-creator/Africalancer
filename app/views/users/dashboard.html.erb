@@ -43,7 +43,7 @@
                       <div class="field">
                         <%= f.text_field :from, autofocus: true, autocomplete: 'form' , class: 'input'%>
                       </div>
-                      <a href="" class="toggle button is-light" aria-controls="user-from">Cancel</a>
+                      <a class="toggle button is-light" aria-controls="user-from">Cancel</a>
                       <%= f.submit "Save", class: "button is-danger" %>
                     <% end %>
                   </div>
@@ -57,13 +57,12 @@
                       <strong><%if current_user.status%> Online<%else%> Offline<%end%></strong><i class="toggle far fa-edit" aria-controls="user-status"></i>
                     </div>
                   </div>
-
                   <div class="content">
                     <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-status', class: 'is-hidden'} do |f| %>
                       <div class="field">
                         <%= f.select(:status, options_for_select([["Online", true], ["Offline", false]]), {}, {class: "select is-fullwidth"} )%>
                       </div>
-                      <a href="" class="toggle button is-light" aria-controls="user-status">Cancel</a>
+                      <a  class="toggle button is-light" aria-controls="user-status">Cancel</a>
                       <%= f.submit "Save", class: "button is-danger" %>
                     <% end %>
                   </div>
@@ -76,10 +75,54 @@
             <div class="card">
               <div class="card-content">
                 <!-- About -->
-                <article></article>
+                <article>
+                  <div class="media">
+                    <div class="media-content">
+                      <p>
+                        <strong> About Yourself</strong>
+                        <br />
+                        <%= current_user.about %>
+                      </p>
+                    </div>
+                    <div class="media-right">
+                      <i class="toggle far fa-edit" aria-controls="user-about"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-about', class: 'is-hidden'} do |f| %>
+                      <div class="field">
+                        <%= f.text_area :about, autofocus: true, autocomplete: 'form' , class: 'input'%>
+                      </div>
+                      <a  class="toggle button is-light" aria-controls="user-about">Cancel</a>
+                      <%= f.submit "Save", class: "button is-danger" %>
+                    <% end %>
+                  </div>
+                </article>
                 <hr class="h-10">
-                <!-- Languages -->
-                <article></article>
+                <!-- Language -->
+                <article>
+                  <div class="media">
+                    <div class="media-content">
+                      <p>
+                        <strong> Language</strong>
+                        <br />
+                        <%= current_user.language %>
+                      </p>
+                    </div>
+                    <div class="media-right">
+                      <i class="toggle far fa-edit" aria-controls="user-language"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-language', class: 'is-hidden'} do |f| %>
+                      <div class="field">
+                        <%= f.text_field :language, autofocus: true, autocomplete: 'form' , class: 'input'%>
+                      </div>
+                      <a  class="toggle button is-light" aria-controls="user-language">Cancel</a>
+                      <%= f.submit "Save", class: "button is-danger" %>
+                    <% end %>
+                  </div>
+                </article>
                 <hr class="h-10">
                 <!-- Linked Account -->
                 <article class="media"></article>
