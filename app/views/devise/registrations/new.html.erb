@@ -32,6 +32,7 @@
                 <%= f.submit "Sign up", class: "button is-danger is-fullwidth m-t-10  m-b-10" %>
               </div>
             <% end %>
+            <%= link_to 'Sign up with Facebook', user_facebook_omniauth_authorize_path, class: "button is-primary is-fullwidth" %>
             <%= render "devise/shared/links" %>
           </div>
         </div>
