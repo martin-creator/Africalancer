@@ -18,4 +18,24 @@ $sides: (top, bottom, left, right);
   .p-#{$space} {
     padding: #{$space}px !important;
   }
+
+  .h-#{$space}{
+    margin-top: #{$space}px !important;
+    margin-bottom: #{$space}px !important;
+  }
+}
+
+.is-horizontal-center{
+  justify-content: center;
+}
+
+.small-title{
+  font-size: 10px;
+}
+
+.star-review{
+  color: #ffbf00;
+  font-size: 13px;
+  font-weight: 600;
+  
 }
