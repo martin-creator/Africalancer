@@ -10,16 +10,22 @@
               <!-- Avatar -->
               <div class="card-content is-horizontal-center is-flex">
                 <figure class="image is-128x128">
-                  <%= image_tag 'icon_default_avatar.png'%>
+                  <%= image_tag avatar_url(current_user), class: 'is-rounded'%>
                 </figure>
               </div>
               <div class="card-content">
                 <!-- Upload Button -->
                 <div class="content has-text-centered">
-                  <p class="title is-5">
-                    <%= current_user.full_name %>
-                  </p>
-                  <button class="button is-primary is-outlined is-fullwidth"> Upload Avatar</button>
+                  <p class="title is-5"><%= current_user.full_name %></p>
+                  <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post   do |f| %>
+                    <div class="file">
+                    <label  class="button is-primary is-outlined is-fullwidth">
+                        <%= f.file_field :avatar, class: "file-input", onchange: "this.form.submit()"%>
+                        <i class="fas fa-upload"></i> &nbsp;&nbsp;&nbsp; Upload Avatar
+                    </label>
+                    </div>
+                  <% end %>
+                  
                 </div>
                 <hr class="h-10">
                 <!-- Member -->
