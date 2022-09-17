@@ -1,2 +1,102 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <!-- LEFT SIDE -->
+      <div class="column is-one-third">
+        <div class="columns is-multiline">
+          <!-- Top Card -->
+          <div class="column is-full">
+            <div class="card">
+              <!-- Avatar -->
+              <div class="card-content is-horizontal-center is-flex">
+                <figure class="image is-128x128">
+                  <%= image_tag 'icon_default_avatar.png'%>
+                </figure>
+              </div>
+              <div class="card-content">
+                <!-- Upload Button -->
+                <div class="content has-text-centered">
+                  <p class="title is-5">
+                    <%= current_user.full_name %>
+                  </p>
+                  <button class="button is-primary is-outlined is-fullwidth"> Upload Avatar</button>
+                </div>
+                <hr class="h-10">
+                <!-- Member -->
+                <article class="media">
+                  <div class="media-content">Member since</div>
+                  <div class="media-right">
+                    <strong><%= current_user.created_at.strftime('%b %Y')%></strong>
+                  </div>
+                </article>
+                <hr class="h-10">
+                <!-- From -->
+                <article>
+                  <div class="media">
+                    <div class="media-content">From</div>
+                    <div class="media-right">
+                      <strong><%= current_user.from%></strong><i class="toggle far fa-edit" aria-controls="user-from"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-from', class: 'is-hidden'} do |f| %>
+                      <div class="field">
+                        <%= f.text_field :from, autofocus: true, autocomplete: 'form' , class: 'input'%>
+                      </div>
+                      <a href="" class="toggle button is-light" aria-controls="user-from">Cancel</a>
+                      <%= f.submit "Save", class: "button is-danger" %>
+                    <% end %>
+                  </div>
+                </article>
+                <hr class="h-10">
+                <!-- Online Status -->
+                <article>
+                  <div class="media">
+                    <div class="media-content">Online Status</div>
+                    <div class="media-right">
+                      <strong><%if current_user.status%> Online<%else%> Offline<%end%></strong><i class="toggle far fa-edit" aria-controls="user-status"></i>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-status', class: 'is-hidden'} do |f| %>
+                      <div class="field">
+                        <%= f.select(:status, options_for_select([["Online", true], ["Offline", false]]), {}, {class: "select is-fullwidth"} )%>
+                      </div>
+                      <a href="" class="toggle button is-light" aria-controls="user-status">Cancel</a>
+                      <%= f.submit "Save", class: "button is-danger" %>
+                    <% end %>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom Card -->
+          <div class="column is-full">
+            <div class="card">
+              <div class="card-content">
+                <!-- About -->
+                <article></article>
+                <hr class="h-10">
+                <!-- Languages -->
+                <article></article>
+                <hr class="h-10">
+                <!-- Linked Account -->
+                <article class="media"></article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT SIDE -->
+      <div class="column">
+        <div class="columns is-multiline">
+          <!-- Create New Gig -->
+          <div class="column is-one-third has-text-centered"></div>
+          <!-- Sample Gig -->
+          <div class="column is-one-third has-text-centered"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
