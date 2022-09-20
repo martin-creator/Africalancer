@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   post '/users/edit', to: 'users#update'
   
 
-  resources :gigs
+  resources :gigs do
+    member do
+      delete :delete_photo
+      post :upload_photo
+    end
+  end
+ 
 
   devise_for :users,
               path: '',

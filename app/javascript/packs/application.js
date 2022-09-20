@@ -12,6 +12,10 @@ global.toastr = require("toastr")
 
 // window.Noty = require("noty")
 
+// window.Dropzone = require("dropzone")
+window.Dropzone = require('dropzone/dist/min/dropzone.min');
+//global.Dropzone = require("dropzone")
+
 $(document).ready(() => {
     $('.toggle').on('click', (e) => {
         e.stopPropagation();
