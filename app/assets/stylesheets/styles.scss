@@ -23,6 +23,10 @@ $sides: (top, bottom, left, right);
     margin-top: #{$space}px !important;
     margin-bottom: #{$space}px !important;
   }
+
+  .f-#{$space} {
+    font-size: #{$space}px !important;
+  }
 }
 
 .is-horizontal-center{

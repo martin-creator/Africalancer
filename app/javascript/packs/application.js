@@ -15,8 +15,9 @@ global.toastr = require("toastr")
 // window.Dropzone = require("dropzone")
 window.Dropzone = require('dropzone/dist/min/dropzone.min');
 //global.Dropzone = require("dropzone")
+window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel")
 
-$(document).ready(() => {
+$(document).on('turbolinks:load', () => {
     $('.toggle').on('click', (e) => {
         e.stopPropagation();
         e.preventDefault();

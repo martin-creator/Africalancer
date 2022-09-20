@@ -25,7 +25,7 @@ class GigsController < ApplicationController
 
   def edit
     @categories = Category.all
-    @step = params[:step].to_i
+    #@step = params[:step].to_i
   end
 
   def update
@@ -82,6 +82,7 @@ class GigsController < ApplicationController
   end
 
   def show
+    @categories = Category.all
   end
 
 
