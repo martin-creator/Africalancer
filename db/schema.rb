@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_133604) do
+ActiveRecord::Schema.define(version: 2022_09_21_074903) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "action_text_rich_texts", force: :cascade do |t|
@@ -65,6 +66,23 @@ ActiveRecord::Schema.define(version: 2022_09_17_133604) do
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.date "due_date"
+    t.string "title"
+    t.float "amount"
+    t.integer "status", default: 0
+    t.string "seller_name"
+    t.string "buyer_name"
+    t.bigint "gig_id", null: false
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+    t.index ["gig_id"], name: "index_orders_on_gig_id"
+    t.index ["seller_id"], name: "index_orders_on_seller_id"
+  end
+
   create_table "pricings", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -100,5 +118,8 @@ ActiveRecord::Schema.define(version: 2022_09_17_133604) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "gigs", "categories"
   add_foreign_key "gigs", "users"
+  add_foreign_key "orders", "gigs"
+  add_foreign_key "orders", "users", column: "buyer_id"
+  add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "pricings", "gigs"
 end

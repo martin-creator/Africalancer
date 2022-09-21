@@ -5,6 +5,7 @@ class Gig < ApplicationRecord
   has_many :pricings
   has_many_attached :photos
   has_rich_text :description
+  has_many :orders
 
   accepts_nested_attributes_for :pricings
 
