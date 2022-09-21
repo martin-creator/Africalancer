@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/buying_orders', to: 'orders#buying_orders'
 
   post '/users/edit', to: 'users#update'
+
+  put '/orders/:id/complete', to: 'orders#complete', as: 'complete_order'
   
 
   resources :gigs do

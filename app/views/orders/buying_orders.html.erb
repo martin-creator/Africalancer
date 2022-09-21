@@ -33,7 +33,7 @@
             </span>
             </td>
             <td>
-            <%= link_to 'Mark Complete', nil, class: "button is-small is-primary #{'is-hidden' if o.completed?}" %>
+            <%= link_to 'Mark Complete', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden' if o.completed?}" %>
             </td>
           </tr>
         <% end %>

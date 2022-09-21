@@ -24,6 +24,20 @@ class OrdersController < ApplicationController
         
     end
 
+
+    def complete
+        @order = Order.find(params[:id])
+
+        if !@order.completed?
+            if @order.completed!
+                flash[:notice] = "Saved..."
+            else 
+                flash[:alert] = "Something went wrong..."
+            end
+
+            redirect_to request.referrer
+        end
+    end
     private
 
     def charge(gig, pricing)
