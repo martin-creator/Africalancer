@@ -12,6 +12,7 @@
     "dropzone": "5.5.1",
     "jquery": "^3.6.1",
     "noty": "^3.2.0-beta-deprecated",
+    "raty-js": "2.9.0",
     "toastr": "^2.1.4",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
