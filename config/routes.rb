@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/all_requests', to: 'requests#list'
   get '/request_offers/:id', to: 'requests#offers', as: 'request_offers'
   get '/my_offers', to: 'requests#my_offers'
+  get '/search', to: 'pages#search'
 
   post '/users/edit', to: 'users#update'
   post '/offers',  to: 'offers#create'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   put '/orders/:id/complete', to: 'orders#complete', as: 'complete_order'
   put '/offers/:id/accept', to: 'offers#accept', as:  'accept_offer'
   put '/offers/:id/reject', to: 'offers#reject', as:  'reject_offer'
+
   
 
   resources :gigs do
