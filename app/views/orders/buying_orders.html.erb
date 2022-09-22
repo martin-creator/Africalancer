@@ -50,7 +50,7 @@
               <div id="star_<%= o.id %>"></div>
               </div>
               <div class="field">
-              <%= f.text_field :review, class: "textarea" %>
+              <%= f.text_area :review, class: "textarea" %>
               </div>
               <a class="toggle-modal button is-light" aria-control="<%= o.id %>"> Cancel </a>
               <%= f.submit "Add Review", class: "button is-danger" %>
