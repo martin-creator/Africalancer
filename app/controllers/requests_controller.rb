@@ -60,6 +60,8 @@ class RequestsController < ApplicationController
     @offers = current_user.offers
     
   end
+
+  
   private
 
   def set_categories

@@ -30,10 +30,26 @@
             <td><%= o.note %></td>
             <td>$<%= o.amount %></td>
             <td><%= pluralize(o.days, "day") %></td>
-            <td><%= o.status.capitalize %></td>
             <td>
-            <%= link_to 'Accept', nil, class: "button is-small is-success" %>
-            <%= link_to 'Reject', nil, class: "button is-small is-danger" %>
+            <span class="tag <%= 'is-warning' if o.pending? %> 
+                             <%= 'is-success' if o.accepted? %>
+                             <%= 'is-danger' if o.rejected? %> ">
+            <%= o.status.capitalize %>
+            </span>
+            </td>
+            <td>
+            <%= link_to accept_offer_path(o), method: :put, 
+                      data: {confirm: "Are you sure?"},
+                      class: "button is-small is-primary is-outlined #{'is-hidden' if !o.pending?}" do  %>
+            <span class="icon"><i class="far fa-check-circle fa-lg"></i></span>
+            <span>Accept</span>
+            <% end %>
+            <%= link_to reject_offer_path(o), method: :put, 
+                      data: {confirm: "Are you sure?"},
+                      class: "button is-small is-danger is-outlined #{'is-hidden' if !o.pending?}" do  %>
+            <span class="icon"><i class="far fa-times-circle fa-lg"></i></span>
+            <span>Reject</span>
+            <% end %>
             </td>
         </tr>
     <% end %>
