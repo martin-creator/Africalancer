@@ -101,10 +101,12 @@
           <div class="column">
             <div class="card">
               <div class="card-content is-horizontal-center is-flex">
+              <%= link_to users_path(@gig.user) do %>
                 <figure class="image is-96x96">
                   <!-- User Avatar Here -->
                   <%= image_tag avatar_url(@gig.user), class: "is-round" %>
                 </figure>
+                <% end %>
               </div>
               <div class="card-content f-15">
                 <div class="content has-text-centered">
