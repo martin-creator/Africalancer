@@ -29,9 +29,11 @@
           <div class="column is-full">
             <div class="card">
               <div class="card-content">
+              <%= form_tag '', method: :get do %>
+                <%= hidden_field_tag 'category', @category ? @category.id : '' %>
                 <!-- Title Search -->
                 <div class="field">
-                  <input class="input" type="text" placeholder="Search by title">
+                  <%= text_field_tag 'q', @q || '', class: "input", placeholder: "Search by title" %>
                 </div>
                 <hr/>
                 <!-- Price Range -->
@@ -41,7 +43,7 @@
                     <a class="button is-static">$</a>
                   </p>
                   <p class="control">
-                    <input class="input" type="text" placeholder="Min">
+                     <%= number_field_tag 'min', @min || '', class: "input", placeholder: "Min" %>
                   </p>
                 </div>
                 <div class="field has-addons">
@@ -49,7 +51,7 @@
                     <a class="button is-static">$</a>
                   </p>
                   <p class="control">
-                    <input class="input" type="text" placeholder="Max">
+                     <%= number_field_tag 'max', @max || '', class: "input", placeholder: "Max" %>
                   </p>
                 </div>
                 <hr/>
@@ -66,8 +68,13 @@
                 <div class="field m-t-20">
                   <button  class="button is-danger is-fullwidth" type="submit"> Apply</button>
                 </div>
+
+               <% end %>
+
                 <div class="field m-t-10">
+                <%= form_tag '', method: :get do %>
                   <button  class="button is-black is-outlined is-fullwidth" type="submit"> Clear All Filters</button>
+                <% end %>
                 </div>
               </div>
             </div>
