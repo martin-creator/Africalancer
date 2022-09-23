@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <%= render 'shared/categories'%>
 <section class="section">
   <div class="container">
@@ -80,10 +84,10 @@
                         </p>
                       </div>
                       <% if (!user_signed_in? && @gig.active) || (user_signed_in? && @gig.active && @gig.user_id != current_user.id ) %>
-                      <%= form_for ([@gig, @gig.orders.new]) do |f| %>
-                        <%= hidden_field_tag 'pricing_type', p.pricing_type, data: {confirm: "Are you sure?"} %>
-                        <%= f.submit "Continue ($#{p.price})", class: "button is-fullwidth is-danger" %>
-                      <% end %>
+                        <%= form_for ([@gig, @gig.orders.new]) do |f| %>
+                          <%= hidden_field_tag 'pricing_type', p.pricing_type, data: {confirm: "Are you sure?"} %>
+                          <%= f.submit "Continue ($#{p.price})", class: "button is-fullwidth is-danger" %>
+                        <% end %>
                       <% else %>
                         <button class="button is-fullwidth is-danger" disabled >Not Available </button>
                       <% end %>
@@ -112,7 +116,7 @@
                     <i class="fas fa-user m-r-5"></i> Member since
                   </div>
                   <div class="media-right">
-                   <%= @gig.user.created_at.strftime('%b %Y') %>
+                    <%= @gig.user.created_at.strftime('%b %Y') %>
                   </div>
                 </article>
                 <article class="media">
@@ -125,7 +129,7 @@
                 </article>
                 <article class="media">
                   <div class="media-content">
-                   <%= @gig.user.about %>
+                    <%= @gig.user.about %>
                   </div>
                 </article>
               </div>

@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <section class="hero is-medium has-bg-img">
   <div class="hero-body">
     <div class="container">
@@ -5,17 +9,17 @@
         Find the Perfect Freelance Services <br>
         For Your Business
       </h1>
-      <div class="field has-addons">
+      <%= form_tag search_path, method: :get, class: "field has-addons" do %>
         <div class="control has-icons-left">
           <span class="icon is-small is-left">
             <i class="fa fa-search"></i>
           </span>
-          <input type="text" class="input" placeholder="Try 'data analysis'">
+          <%=  text_field_tag 'q', '',  class: "input", placeholder: "Try 'data analysis'" %>
         </div>
         <div class="control">
           <button class="button is-primary" type="Submit">Search</button>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
@@ -25,6 +29,7 @@
     <div id="carousel-category" class="hero-carousel">
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 1) do %>
           <div class="card-image">
             <%= image_tag 'home/category_1.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -32,11 +37,13 @@
               <span class="title is-4 has-text-white">Wordpress</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 2) do %>
           <div class="card-image">
             <%= image_tag 'home/category_2.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -44,11 +51,13 @@
               <span class="title is-4 has-text-white">Data Entry</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 3) do %>
           <div class="card-image">
             <%= image_tag 'home/category_3.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -56,11 +65,13 @@
               <span class="title is-4 has-text-white">Illustration</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 4) do %>
           <div class="card-image">
             <%= image_tag 'home/category_4.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -68,11 +79,13 @@
               <span class="title is-4 has-text-white">Design</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 5) do %>
           <div class="card-image">
             <%= image_tag 'home/category_5.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -80,11 +93,13 @@
               <span class="title is-4 has-text-white">Social Media</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 6) do %>
           <div class="card-image">
             <%= image_tag 'home/category_6.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -92,11 +107,13 @@
               <span class="title is-4 has-text-white">Translation</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
       <div class="carousel-item">
         <div class="p-10">
+        <%= link_to search_path(category: 7) do %>
           <div class="card-image">
             <%= image_tag 'home/category_7.jpg',  class: "is-background", width: "100%", height: "100%" %>
             <div class="card-content is-overlay is-clipped">
@@ -104,6 +121,7 @@
               <span class="title is-4 has-text-white">Voice Over</span>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
 
