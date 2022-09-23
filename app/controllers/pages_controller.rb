@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @min = params[:min]
     @max = params[:max]
     @delivery = params[:delivery].present? ? params[:delivery] : "0"
+    @sort = params[:sort].present? ? params[:sort] : "price asc"
 
     query_condition = []
     query_condition[0] = "gigs.active = true"
@@ -41,6 +42,10 @@ class PagesController < ApplicationController
       query_condition.push  @delivery
     end
 
-    @gigs = Gig.select("gigs.id, gigs.title, gigs.user_id, pricings.price AS price ").joins(:pricings).where(query_condition)
+    @gigs = Gig
+               .select("gigs.id, gigs.title, gigs.user_id, pricings.price AS price ")
+               .joins(:pricings)
+               .where(query_condition)
+               .order(@sort)
   end
 end

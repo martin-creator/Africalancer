@@ -9,17 +9,22 @@
           Gigs <% if @category %> <%= @category.name %><% end %>
         </div>
         <!-- Sort by Dropdown -->
+        <%= form_tag '', method: :get do %>
+         <%= hidden_field_tag 'category', @category ? @category.id : '' %>
         <div class="field p-10">
           <div class="select">
             <%= select_tag 'sort', options_for_select([
-                            ['Price Low to High', ''], 
-                            ['Price High to Low', ''], 
-                            ['Latest First', ''],
-                            ['Oldest First', '']
+                            ['Price Low to High', 'price asc'], 
+                            ['Price High to Low', 'price desc'], 
+                            ['Latest First', 'gigs.created_at desc'],
+                            ['Oldest First', 'gigs.created_at asc']
 
-                        ])%>
+                        ], selected: @sort
+                        
+                        ), onchange: "this.form.submit()" %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
     <div class="columns">
@@ -34,6 +39,7 @@
                 <!-- Title Search -->
                 <div class="field">
                   <%= text_field_tag 'q', @q || '', class: "input", placeholder: "Search by title" %>
+                  <%= hidden_field_tag 'sort', @sort %>
                 </div>
                 <hr/>
                 <!-- Price Range -->
