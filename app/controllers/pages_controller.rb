@@ -47,5 +47,7 @@ class PagesController < ApplicationController
                .joins(:pricings)
                .where(query_condition)
                .order(@sort)
+               .page(params[:page])
+               .per(6)
   end
 end

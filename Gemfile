@@ -49,6 +49,9 @@ gem 'omniauth-facebook', '~> 5.0'
 
 gem 'faker', '~> 1.9'
 
+#gem for paging
+gem 'kaminari'
+
 
 
 group :development, :test do
