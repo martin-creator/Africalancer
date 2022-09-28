@@ -142,6 +142,31 @@
                     </p>
                   </div>
                 </article>
+                <!--Mobile Number -->
+                <article>
+                  <div class="media">
+                    <div class="media-content">
+                      <p>
+                        <strong> Mobile Number </strong>
+                        <br />
+                        <%= current_user.hidden_phone %>
+                      </p>
+                    </div>
+                    <div class="media-right">
+                      <i class="toggle far fa-edit" aria-controls="user-phone"></i>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-phone', class: 'is-hidden'} do |f| %>
+                      <div class="field">
+                        <%= f.text_field :about, autofocus: true, autocomplete: 'form' , class: 'input', id: 'phone_number' %>
+                      </div>
+                      <a  class="toggle button is-light" aria-controls="user-phone">Cancel</a>
+                      <%= link_to 'Add & Verify', "javascript:verifyPhone()", class: "button is-danger" %>
+                    <% end %>
+                  </div>
+                </article>
+                
               </div>
             </div>
           </div>

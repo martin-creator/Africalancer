@@ -44,5 +44,11 @@ class User < ApplicationRecord
     
   end
 
+  def hidden_phone
+    if self.phone && self.phone.length > 3
+      "*" * (self.phone.length - 3) + self.phone.last(3)
+    end
+  end
+
 
 end
