@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/offers',  to: 'offers#create'
   post '/reviews', to: 'reviews#create'
   post 'users/edit_phone', to: 'users#callback_phone'
+  post '/settings/payment', to: 'users#update_payment', as: "update_payment"
   
 
   put '/orders/:id/complete', to: 'orders#complete', as: 'complete_order'

@@ -4,7 +4,12 @@
   <div class="container">
     <div class="columns is-centered is-full">
       <div class="column is-8-tablet is-6-desktop is-6-widescreen">
-        <form action="/charge" method="post" id="payment-form">
+      <% if current_user.stripe_last_4 %>
+        <div class="card-header-title is-centered">
+        <%= "Your current card: **** **** **** #{current_user.stripe_last_4}" %>
+        </div>
+      <% end %>
+        <%= form_with url: update_payment_path, local:true, id: "payment-form" do |f| %>
           <div class="card form-row">
             <div id="card-element">
               <!-- A Stripe Element will be inserted here. -->
@@ -13,21 +18,22 @@
             <div id="card-errors" role="alert"></div>
           </div>
           <div class="field is-grouped is-grouped-centered">
-          <button class=" button is-primary m-t-20">Add Card</button>
+          <%= f.submit "#{current_user.stripe_id ? "Update Card" : "Add Card" }",
+                       class:"button is-primary m-t-20"%>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
 <script>
-  var stripe = Stripe('pk_live_51LdUfWKpF5y3T7ip0kq3wsfiYyGsHTCUBox2pfceJSg6gZKWQ6RjRiss3GMFFwah0SXzbQLgnyiD5eY5jfssjXSy00BM1EqngF');
+  var stripe = Stripe('pk_test_51LdUfWKpF5y3T7ipXMDU8jM9HEIblqqN1ZNf2J84aXbx3pauYjPzgvuZfz0jDucK8YAoLuu8mVGQuqkyTFHCRTIM00eN6D5V2e');
   var elements = stripe.elements();
   
   var style = {
    base: {
       iconColor: '#c4f0ff',
-      color: '#fff',
+      color: '#000000',
       fontWeight: '500',
       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
@@ -83,6 +89,15 @@
   function stripeTokenHandler(token) {
   // Insert the token ID into the form so it gets submitted to the server
   var errorElement = document.getElementById('card-errors');
-  errorElement.textContent =token.id;
+  var form = document.getElementById('payment-form');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
+
+  //Submit the form
+  form.submit();
+  //errorElement.textContent =token.id;
   }
 </script>

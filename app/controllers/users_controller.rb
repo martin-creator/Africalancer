@@ -44,6 +44,32 @@ class UsersController < ApplicationController
 
   end
 
+  def update_payment
+    if !current_user.stripe_id
+      customer = Stripe::Customer.create(
+        email: current_user.email,
+        source: params[:stripeToken]
+      ) 
+    else
+      customer = Stripe::Customer.update(
+        current_user.stripe_id,
+        source: params[:stripeToken]
+      )
+    end
+
+    Rails.logger.debug("My object: #{customer.inspect}")
+    
+    if current_user.update(stripe_id: customer.id, stripe_last_4: Stripe::Customer.retrieve_source(customer.id, customer.default_source )["last4"]) 
+      flash[:notice] = "New Card is saved"
+    else
+      flash[:alert] = "Invalid card"
+    end
+
+    redirect_to request.referrer
+  rescue Stripe::CardError => e 
+    flash[:alert] = e.message
+    redirect_to request.referrer
+  end
 
   private
   def current_user_params
