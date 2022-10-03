@@ -8,10 +8,10 @@ class OrdersController < ApplicationController
         if (pricing && !gig.has_single_pricing) || (pricing && pricing.basic? && gig.has_single_pricing)
             charge(gig, pricing)
         else
-            flash[:alert] = "Pricr is incorrect"
+            flash[:alert] = "Price is incorrect"
         end
 
-        redirect_to request.referrer
+        redirect_to buying_orders_path
     end
 
     def selling_orders

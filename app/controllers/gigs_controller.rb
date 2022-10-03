@@ -99,6 +99,16 @@ class GigsController < ApplicationController
   end
 
  
+  def checkout
+    if current_user.stripe_id 
+      @stripe_customer = Stripe::Customer.retrieve(current_user.stripe_id);
+      @gig = Gig.find(params[:id])
+      @pricing = @gig.pricings.find_by(pricing_type: params[:pricing_type] )
+    else 
+      redirect_to settings_payment_path, alert: "Please add your card first"
+    end
+    
+  end
 
   
 
