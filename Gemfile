@@ -59,6 +59,11 @@ gem 'stripe', '~> 7.0'
 
 #gem 'stripe', '~> 4.18', '>= 4.18.1'
 
+#supports admin dashboard
+gem 'trestle', '~> 0.9.0'
+
+gem 'trestle-auth', '~> 0.4.2'
+
 
 
 group :development, :test do
