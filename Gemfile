@@ -66,6 +66,8 @@ gem 'trestle-auth', '~> 0.4.2'
 
 gem 'trestle-search', '~> 0.4.2'
 
+gem 'trestle-tinymce', '~> 0.3.0'
+
 
 
 group :development, :test do
