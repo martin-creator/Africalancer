@@ -64,6 +64,8 @@ gem 'trestle', '~> 0.9.0'
 
 gem 'trestle-auth', '~> 0.4.2'
 
+gem 'trestle-search', '~> 0.4.2'
+
 
 
 group :development, :test do

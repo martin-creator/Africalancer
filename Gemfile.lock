@@ -239,6 +239,8 @@ GEM
     trestle-auth (0.4.4)
       bcrypt (~> 3.1.7)
       trestle (~> 0.9.0, >= 0.9.3)
+    trestle-search (0.4.3)
+      trestle (~> 0.9.0, >= 0.9.3)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -298,6 +300,7 @@ DEPENDENCIES
   stripe (~> 7.0)
   trestle (~> 0.9.0)
   trestle-auth (~> 0.4.2)
+  trestle-search (~> 0.4.2)
   turbolinks (~> 5)
   twilio-ruby (~> 5.71.0)
   tzinfo-data
