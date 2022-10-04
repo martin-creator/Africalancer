@@ -63,7 +63,18 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_dispatch.cookies_same_site_protection = :none
-  
+
   config.hosts << /.+\.ngrok\.io/
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+
+    paypal_options = {
+      login: ENV['username'],
+      password: ENV['password'],
+      signature: ENV['signature']
+    }
+    ::EXPRESS_GATEWAY =  ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 
 end

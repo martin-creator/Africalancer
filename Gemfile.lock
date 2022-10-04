@@ -40,6 +40,11 @@ GEM
     activejob (6.0.6)
       activesupport (= 6.0.6)
       globalid (>= 0.3.6)
+    activemerchant (1.126.0)
+      activesupport (>= 4.2)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (6.0.6)
       activesupport (= 6.0.6)
     activerecord (6.0.6)
@@ -282,6 +287,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant (~> 1.117)
   bootsnap (>= 1.4.2)
   bulma-extensions-rails (~> 1.0.30)
   bulma-rails (~> 0.7.4)

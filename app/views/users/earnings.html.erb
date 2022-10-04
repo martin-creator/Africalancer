@@ -74,7 +74,7 @@
               <td><span class="tag "><%= t.status %></span></td>
               <td>
               <span class="<%= current_user.id = t.buyer_id ? 'has-text-danger' : 'has-text-success' %>">
-              <%= current_user.id == t.buyer_id ? '-' : '+' %>
+              <%= current_user.id == t.buyer_id ? '-': '+' %>$
               <%= current_user.id == t.buyer_id ? t.amount : (t.amount / 1.1).round(2)  %>
               </span>
               </td>

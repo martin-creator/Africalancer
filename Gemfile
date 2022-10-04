@@ -68,6 +68,8 @@ gem 'trestle-search', '~> 0.4.2'
 
 gem 'trestle-tinymce', '~> 0.3.0'
 
+gem 'activemerchant', '~> 1.117'
+
 
 
 group :development, :test do
