@@ -133,6 +133,8 @@ class UsersController < ApplicationController
     redirect_to request.referrer
   end
 
+
+
   private
 
   def current_user_params
