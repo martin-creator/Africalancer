@@ -104,6 +104,35 @@ class UsersController < ApplicationController
                                       Transaction.source_types[:system]).page(params[:page])
   end
 
+  def withdraw
+    amount = params[:amount].to_i 
+    is_pending_withdraw = Transaction.exists?(buyer_id: current_user.id, 
+                                              status: Transaction.statuses[:pending],
+                                              transaction_type: Transaction.transaction_types[:withdraw] )
+
+    if amount <= 0
+      flash[:alert] = "Invalid amount"
+    elsif amount > current_user.wallet
+      flash[:alert] = "You are asking for more than you have"
+    elsif !is_pending_withdraw.blank?
+      flash[:alert] = "You currently have a pending withdraw request"
+    else
+      transaction = Transaction.new 
+      transaction.status = Transaction.statuses[:pending]
+      transaction.transaction_type = Transaction.transaction_types[:withdraw]
+      transaction.source_type = Transaction.source_types[:system]
+      transaction.buyer = current_user
+      transaction.amount = amount
+
+      if transaction.save 
+        flash[:notice] = "Create withdraw request successfully"
+      else  
+        flash[:alert] = "Cannot create a request"
+      end
+    end
+    redirect_to request.referrer
+  end
+
   private
 
   def current_user_params
