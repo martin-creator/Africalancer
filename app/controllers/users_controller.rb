@@ -20,53 +20,51 @@ class UsersController < ApplicationController
   end
 
   def callback_phone
-    path_access_token =  "https://graph.accountkit.com/'.$version.'/access_token?"+
-                          "grant_type=authorization_code" +
-                          "&code=#{params[:code]}"+
-                          "&access_token=AA|#{app_id}|#{secret}"
+    path_access_token = "https://graph.accountkit.com/'.$version.'/access_token?" +
+                        "grant_type=authorization_code" +
+                        "&code=#{params[:code]}" +
+                        "&access_token=AA|#{app_id}|#{secret}"
 
     response = Net::HTTP.get(URI.parse(path_access_token))
     response = JSON.parse(response)
 
-
     #https://verify.twilio.com/v2/Services/VA2ab2d55df9fb58a7c0e61c41f182928d/Verifications
-    if response['access_token']
-      path_get_data = "https://graph.accountkit.com/v1.1/me?access_token=#{response['access_token']}"
+    if response["access_token"]
+      path_get_data = "https://graph.accountkit.com/v1.1/me?access_token=#{response["access_token"]}"
       response = Net::HTTP.get(URI.parse(path_access_token))
       response = JSON.parse(response)
 
-      if response['phone']['number']
-        current_user.update(phone: response['phone']['number'] )
-        return render json: {success: true}
+      if response["phone"]["number"]
+        current_user.update(phone: response["phone"]["number"])
+        return render json: { success: true }
       end
     end
-    return render json: {success: false}
-
+    return render json: { success: false }
   end
 
   def update_payment
     if !current_user.stripe_id
       customer = Stripe::Customer.create(
         email: current_user.email,
-        source: params[:stripeToken]
-      ) 
+        source: params[:stripeToken],
+      )
     else
       customer = Stripe::Customer.update(
         current_user.stripe_id,
-        source: params[:stripeToken]
+        source: params[:stripeToken],
       )
     end
 
     Rails.logger.debug("My object: #{customer.inspect}")
-    
-    if current_user.update(stripe_id: customer.id, stripe_last_4: Stripe::Customer.retrieve_source(customer.id, customer.default_source )["last4"]) 
+
+    if current_user.update(stripe_id: customer.id, stripe_last_4: Stripe::Customer.retrieve_source(customer.id, customer.default_source)["last4"])
       flash[:notice] = "New Card is saved"
     else
       flash[:alert] = "Invalid card"
     end
 
     redirect_to request.referrer
-  rescue Stripe::CardError => e 
+  rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to request.referrer
   end
@@ -80,8 +78,35 @@ class UsersController < ApplicationController
     redirect_to request.referrer
   end
 
+  def earnings
+    @net_income = (Transaction.where("seller_id = ?", current_user.id).sum(:amount) / 1.1).round(2)
+
+    @withdrawn = Transaction.where("buyer_id = ? AND status = ? AND transaction_type = ?",
+                                   current_user.id,
+                                   Transaction.statuses[:approved],
+                                   Transaction.transaction_types[:withdraw]).sum(:amount)
+
+    @pending = Transaction.where("buyer_id = ? AND status = ? AND transaction_type = ?",
+                                 current_user.id,
+                                 Transaction.statuses[:pending],
+                                 Transaction.transaction_types[:withdraw]).sum(:amount)
+
+    @purchased = Transaction.where("buyer_id = ? AND source_type = ? AND transaction_type = ?",
+                                   current_user.id,
+                                   Transaction.source_types[:system],
+                                   Transaction.transaction_types[:trans]).sum(:amount)
+
+    @withdrawable = @current_user.wallet
+
+    @transactions = Transaction.where("seller_id = ? OR (buyer_id = ? AND source_type = ?)",
+                                      current_user.id,
+                                      current_user.id,
+                                      Transaction.source_types[:system]).page(params[:page])
+  end
+
   private
+
   def current_user_params
-    params.require(:user).permit(:from, :about, :status, :language, :avatar )
+    params.require(:user).permit(:from, :about, :status, :language, :avatar)
   end
 end

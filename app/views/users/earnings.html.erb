@@ -6,23 +6,23 @@
         <div class="columns has-text-centered">
           <div class="column">
             Net income
-            <p class="is-size-4">$100</p>
+            <p class="is-size-4">$<%= @net_income %></p>
           </div>
           <div class="column">
             Withdrawn
-            <p class="is-size-4">$100</p>
+            <p class="is-size-4">$<%= @withdrawn %></p>
           </div>
           <div class="column">
             Used for Purchases
-            <p class="is-size-4">$100</p>
+            <p class="is-size-4">$<%= @purchased %></p>
           </div>
           <div class="column">
             Pending Clearance
-            <p class="is-size-4">$100</p>
+            <p class="is-size-4">$<%= @pending %></p>
           </div>
           <div class="column">
             Available for Withdrawal
-            <p class="is-size-4">$100</p>
+            <p class="is-size-4">$<%= @withdrawable %></p>
           </div>
         </div>
       </div>
@@ -66,15 +66,24 @@
             </tr>
           </thead>
           <tbody>
+          <% @transactions.each do |t| %>
             <tr>
-              <td>12 July 2019</td>
-              <td>I will do it for you</td>
-              <td>Transaction</td>
-              <td><span class="tag is-warning">In progress</span></td>
-              <td>$15</td>
+              <td><%= t.created_at.strftime('%d,%b %Y')%></td>
+              <td><%= t.gig ? t.gig.title : "Withdraw Amount" %></td>
+              <td><%= t.transaction_type %></td>
+              <td><span class="tag "><%= t.status %></span></td>
+              <td>
+              <span class="<%= current_user.id = t.buyer_id ? 'has-text-danger' : 'has-text-success' %>">
+              <%= current_user.id == t.buyer_id ? '-' : '+' %>
+              <%= current_user.id == t.buyer_id ? t.amount : (t.amount / 1.1).round(2)  %>
+              </span>
+              </td>
             </tr>
+            <% end %>
           </tbody>
         </table>
+
+        <%= paginate @transactions%>
       </div>
       </div>
     </div>
