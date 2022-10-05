@@ -100,4 +100,11 @@ $sides: (top, bottom, left, right);
   &.offline:before{
     background-color: gray;
   }
+
+}
+
+.conversation-message{
+  margin-bottom: 5px !important ;
+  padding: 10px !important;
+  font-size: 15px;
 }
