@@ -6,7 +6,12 @@ class CommentsController < ApplicationController
         order = Order.find(comment_params[:order_id])
 
         if comment_params[:content].blank?
-            return redirect_to request.referrer, alert: "Invalid Message"
+            #return redirect_to request.referrer, alert: "Invalid Message"
+            return render json: {success: false}
+        end
+
+        if order.buyer.id != current_user.id && order.seller_id != current_user.id
+            return render json: {success: false} 
         end
 
         @comment =  Comment.new(
@@ -16,15 +21,23 @@ class CommentsController < ApplicationController
         )
 
         if @comment.save
-            redirect_to request.referrer, notice: "Comment sent..."
+            #redirect_to request.referrer, notice: "Comment sent..."
+            CommentChannel.broadcast_to order, message: render_comment(@comment)
+            return render json: {success: true}
         else  
-            redirect_to request.referrer, alert: "Comment could not be sent..."
+            #redirect_to request.referrer, alert: "Comment could not be sent..."
+            return render json: {success: false}
         end
     end
 
 
 
     private
+
+    def render_comment(comment)
+        self.render_to_string partial: 'orders/comment', locals: {comment: comment}
+    end
+
     def comment_params
         params.require(:comment).permit(:content, :order_id)
     end

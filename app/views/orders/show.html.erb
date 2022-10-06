@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" data-channel-subscribe="order" data-order-id="<%= @order.id %>" >
   <div class="container">
     <div class="columns">
       <!-- LEFT SIDE -->
@@ -21,7 +21,7 @@
             </p>
           </figure>
           <div class="media-content">
-            <%= form_with model: Comment.new, id: "new_comment" do |f| %>
+            <%= form_with model: Comment.new, id: "new-comment" do |f| %>
               <%= f.hidden_field :order_id, value: @order.id %>
               <div class="field">
                 <%= f.text_area :content, class: "textarea", placeholder: "Type your comment" %>
