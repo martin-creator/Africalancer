@@ -1,0 +1,18 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <%= image_tag avatar_url(comment.user), class: "is-rounded" %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p><strong>
+          <%= comment.user.id == current_user.id ? "Me" : comment.user.full_name  %>
+        </strong></p>
+      <small class="is-pulled-right"> <%= time_ago_in_words(comment.created_at)%></small>
+      <br>
+      <%= comment.content %>
+      <br>
+    </div>
+  </div>
+</article>

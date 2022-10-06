@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post '/settings/payout', to: 'users#update_payout', as: "update_payout"
   post '/users/withdraw', to: 'users#withdraw', as: 'withdraw'
   post 'messages', to: 'messages#create'
+  post '/comments', to: 'comments#create'
   
   
 
