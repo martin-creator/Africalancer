@@ -1,0 +1,62 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+
+            <!-- LEFT SIDE -->
+            <div class="column is-two-thirds">
+                <p class="menu-label">
+                    Comments on your order
+                </p>
+                <hr>
+                <div id="comment-list">
+                    <!-- List of comments here -->
+                </div>
+                <hr>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">                            
+                            <img src="https://i.pravatar.cc/200" class = "is-rounded">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="field">
+                            <textarea class="textarea"></textarea>
+                        </div>
+                        <div class="field is-pulled-right">
+                            <button class="button is-primary">Post comment</button>                            
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">                        
+                        <figure class="image is-3by2">
+                            <!-- Gig / Request Cover here -->
+                            <%= image_tag gig_cover(@gig) if @gig %>
+                            <%= image_tag 'icon_default_image.png' if @request  %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            <strong><%= @order.title %></strong>
+                            <strong class="title is-4 is-pulled-right has-text-success">$100</strong>
+                        </p>
+                        <br>
+                        <small>
+                            <p>Seller: <%= @order.seller_name %></p>
+                            <br>
+                            <p>Order: <%= @order.id %></p>
+                            <br>
+                            <p><%= @order.created_at.strftime("%d, %b %Y") %></p>  
+                        </small>                    
+                    </div>                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

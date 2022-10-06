@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'users'
   get '/selling_orders', to: 'orders#selling_orders'
   get '/buying_orders', to: 'orders#buying_orders'
+  get '/orders/:id', to: 'orders#show', as: 'order_detail'
   get '/all_requests', to: 'requests#list'
   get '/request_offers/:id', to: 'requests#offers', as: 'request_offers'
   get '/my_offers', to: 'requests#my_offers'
