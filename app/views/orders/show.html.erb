@@ -26,6 +26,17 @@
               <div class="field">
                 <%= f.text_area :content, class: "textarea", placeholder: "Type your comment" %>
               </div>
+              <div class="field is-pulled-left">
+                <div class="file is-warning has-name">
+                  <label  class="file-label">
+                    <%= f.file_field :attachment_file, class: "file-input" %>
+                    <span class="file-cta">
+                      <span class="file-label"> Attachment (Optional) </span>
+                    </span>
+                    <span class="file-name" id="file-name"> No file selected</span>
+                  </label>
+                </div>
+              </div>
               <div class="field is-pulled-right">
                 <%= f.submit "Post comment", class: "button is-primary" %>
               </div>
@@ -62,3 +73,16 @@
     </div>
   </div>
 </section>
+<script>
+  $(document).ready(function(){
+      var file = $('.file-input');
+      file.change(function(e){
+          if (file[0].files.length > 0) {
+              var attachment = file[0].files[0];
+              $('.file-name').text(attachment.name + "(" + attachment.size + "bytes )");
+
+
+          }
+      })
+  })
+</script>
