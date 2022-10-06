@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" data-channel-subscribe = "conversation" data-conversation-id="<%= @conversation.id %>" data-user-id="<%= current_user.id %>">
   <div class="columns">
     <div class="column is-4">
       <nav class="menu">
@@ -57,38 +57,15 @@
       </article>
       <hr>
       <!-- Messages -->
-      <div class="columns is-multiline">
+      <div class="columns is-multiline" id="message_list">
 
         <% @messages.each do |m| %>
-          <% if m.user.id ==  current_user.id %>
-            <div class="column is-7 is-offset-5">
-              <p class="notification is-primary conversation-message">
-                <%= m.content %>
-              </p>
-              <span class="subtitle is-7"> <%= time_ago_in_words(m.created_at) %> </span>
-            </div>
-          <% else %>
-            <div class="column is-7">
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-32x32">
-                    <%= image_tag avatar_url(m.user), class: "is-rounded" %>
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="notification conversation-message">
-                    <%= m.content %>
-                  </p>
-                  <span class="subtitle is-7"> <%= time_ago_in_words(m.created_at) %> </span>
-                </div>
-              </article>
-            </div>
-          <% end %>
+          <%= render 'conversations/message', m:m , user: current_user%>
         <% end %>
       </div>
       <!-- Send Message -->
       <div class="column m-t-25">
-      <%= form_with model: Message.new do |f| %>
+      <%= form_with model: Message.new, id: "new_message" do |f| %>
         <%= f.hidden_field :receiver_id, value: @user.id %>
         <div class="field has-addons">
         <div class="control" style="width: 100%">
