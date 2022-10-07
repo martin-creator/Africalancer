@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/request_offers/:id', to: 'requests#offers', as: 'request_offers'
   get '/my_offers', to: 'requests#my_offers'
   get '/search', to: 'pages#search'
+  get '/calendar', to: 'pages#calendar'
   get 'settings/payment', to: 'users#payment', as: 'settings_payment'
   get 'settings/payout', to: 'users#payout', as: 'settings_payout'
   get '/gigs/:id/checkout/:pricing_type', to: 'gigs#checkout', as: 'checkout'

@@ -1,0 +1,35 @@
+<section class="section">
+    <div class="container m-t-20">
+    <div id="calendar">
+    
+    </div>
+    
+    </div>
+</section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js'></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+$(function(){
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        header: {
+            left: 'prev, next',
+            right: 'dayGridMonth, listMonth'
+        },
+
+        plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+        defaultView: 'dayGridMonth'
+    });
+
+    calendar.render();
+});
+
+})
+</script>

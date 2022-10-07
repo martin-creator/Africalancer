@@ -37,6 +37,9 @@ gem 'bulma-extensions-rails', '~>1.0.30'
 
 gem 'devise', '~> 4.6'
 
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
 #gem 'toastr-rails', '~>1.0' --we have installed with yarn instead
 
 gem "figaro"
@@ -69,6 +72,12 @@ gem 'trestle-search', '~> 0.4.2'
 gem 'trestle-tinymce', '~> 0.3.0'
 
 gem 'activemerchant', '~> 1.117'
+
+# gem 'jquery-ui-rails', '~>5.0'
+
+# gem 'fullcalendar-rails', '~> 2.6', '>= 2.6.1.0'
+
+# gem 'momentjs-rails', '~>2.17.1'
 
 
 

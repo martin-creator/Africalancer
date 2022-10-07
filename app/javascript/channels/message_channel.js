@@ -1,7 +1,7 @@
 import consumer from "./consumer"
 
  $(document).on('turbolinks:load', ()=> {
-  $data('[data-channel-subscribe="conversation"]').each(function(index, element){
+  $('[data-channel-subscribe="conversation"]').each(function(index, element){
     var $element = $(element),
         $chatList = $('#message_list'),
         $form = $('#new_message'),
