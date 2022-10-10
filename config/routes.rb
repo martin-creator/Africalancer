@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   post '/users/withdraw', to: 'users#withdraw', as: 'withdraw'
   post 'messages', to: 'messages#create'
   post '/comments', to: 'comments#create'
+  post '/subscribe', to: 'subscriptions#subscribe'
+  post '/webhook', to: 'subscriptions#webhook'
   
   
 
