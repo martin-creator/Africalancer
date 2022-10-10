@@ -56,16 +56,16 @@
                       Subtotal
                     </div>
                     <div class="media-right">
-                      <strong><%= '%.2f' % @pricing.price %></strong>
+                      <strong>$<%= '%.2f' % @pricing.price %></strong>
                     </div>
                   </article>
                 
                 <article class="media">
                     <div class="media-content">
-                      Service fee(10%%)
+                      Service fee(<%= (@rate * 100).to_i %>%)
                     </div>
                     <div class="media-right">
-                      <strong><%= '%.2f' % ( @pricing.price * 0.1) %></strong>
+                      <strong>$<%= '%.2f' % ( @pricing.price * @rate) %></strong>
                     </div>
                   </article>
 
@@ -74,7 +74,7 @@
                       Total
                     </div>
                     <div class="media-right">
-                      <strong><%= '%.2f' % (@pricing.price * 1.1 ) %></strong>
+                      <strong>$<%= '%.2f' % (@pricing.price * (@rate + 1)) %></strong>
                     </div>
                   </article>
 

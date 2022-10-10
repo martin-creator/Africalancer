@@ -1,4 +1,4 @@
-class SubscriptionsClass < ApplicationController
+class SubscriptionsController < ApplicationController
   before_action :authenticate_user!, only: [:subscribe]
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
