@@ -1,32 +1,34 @@
 <section class="section">
-    <div class="container">
+  <div class="container">
     <p class="title is-4 m-b-50  m-t-50 has-text-centered">
-    Choose the best Package for your business
+      Choose the best Package for your business
     </p>
     <div class="pricing-table m-t-20 m-l-50 m-r-50">
-    <%# <%=  Rails.logger.debug("My object1: #{@plans.inspect}") %>
-
-    <% @plans.data.each do |plan| %>
-     <div class="pricing-plan
+      <%# <%=  Rails.logger.debug("My object1: #{@plans.inspect}") %>
+      <% @plans.data.each do |plan| %>
+        <div class="pricing-plan
         <%= 'is-warning' if plan.amount == 500 %>
          <%= 'is-primary is-active' if plan.amount == 1000 %>
           <%= 'is-danger' if plan.amount == 2500 %>">
-     <div class="plan-header"><%= plan.nickname %></div>
-     <div class="plan-price">
-     <span class="plan-price-amount">
-     <span class="plan-price currency">$</span> <%= plan.amount / 100 %>
-     </span>/month
-     </div>
-     <div class="plan-items">
-     <div class="plan-item">
-     Commission fee is <%= plan.metadata.commission %>
-     </div>
-     </div>
-     <div class="plan-footer">
-     <button class="button is-fullwidth">Choose</button>
-     </div>
-     </div>
-    <% end %>
+          <div class="plan-header"><%= plan.nickname %></div>
+          <div class="plan-price">
+            <span class="plan-price-amount">
+              <span class="plan-price currency">$</span> <%= plan.amount / 100 %>
+            </span>/month
+          </div>
+          <div class="plan-items">
+            <div class="plan-item">
+              Commission fee is <%= plan.metadata.commission %>
+            </div>
+          </div>
+          <div class="plan-footer">
+            <%= form_with url: subscribe_url do |f| %>
+              <%= f.hidden_field :plan_id, value: plan.id %>
+              <%= f.submit "Choose", class: "button is-fullwidth"%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    </div>
+  </div>
 </section>

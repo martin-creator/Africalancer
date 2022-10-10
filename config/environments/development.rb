@@ -64,7 +64,7 @@ Rails.application.configure do
 
   config.action_dispatch.cookies_same_site_protection = :none
 
-  config.hosts << /.+\.ngrok\.io/
+  config.hosts = nil
 
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test

@@ -1,5 +1,6 @@
 class SubscriptionsClass < ApplicationController
   before_action :authenticate_user!, only: [:subscribe]
+  skip_before_action :verify_authenticity_token, only: [:webhook]
 
   def subscribe
     if !current_user.stripe_id?
