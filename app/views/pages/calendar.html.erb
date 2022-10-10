@@ -14,9 +14,33 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js'></script>
 
 <script>
+ 
 
+ 
 
 document.addEventListener('DOMContentLoaded', function() {
+    orders = <%= raw @orders.to_json %>
+    console.log(orders);
+
+    function showOrders(orders){
+        return orders.map(function(o){
+            let code = "#ffdd57";
+
+            if(new Date(o.due_date) < new Date()){
+                code = "#ff3860";
+            }else if (new Date(o.due_date) > new Date().getTime() + (2*24*60*60*1000)){
+                code = "#23d160";
+            }
+
+            return {
+                id: o.id,
+                title: o.buyer_name,
+                start: o.due_date,
+                end: o.due_date,
+                backgroundColor: code
+            }
+        })
+    }
     var getQueryParam = function(params){
     var found,
         item = window.location.search.substr(1).split("=");
@@ -41,6 +65,10 @@ $(function(){
         },
         defaultDate: start_date, 
         plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+        events: showOrders(orders),
+        eventClick: function(info){
+            window.location.href = "/orders/" + info.event.id
+        },
         defaultView: 'dayGridMonth'
     });
 
