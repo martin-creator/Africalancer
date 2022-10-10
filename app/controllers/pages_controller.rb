@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @category = Category.find(params[:category]) if params[:category].present?
 
     #@gigs = Gig.where("active = ? AND gigs.title ILIKE ? AND category_id = ?", true, "%#{params[:q]}%", params[:category] )
-    
+
     @q = params[:q]
     @min = params[:min]
     @max = params[:max]
@@ -25,31 +25,45 @@ class PagesController < ApplicationController
 
     if !params[:category].blank?
       query_condition[0] += " AND category_id = ?"
-      query_condition.push  params[:category]
+      query_condition.push params[:category]
     end
 
     if !params[:min].blank?
       query_condition[0] += " AND pricings.price >= ?"
-      query_condition.push  @min
+      query_condition.push @min
     end
 
     if !params[:max].blank?
       query_condition[0] += " AND pricings.price <= ?"
-      query_condition.push  @max
+      query_condition.push @max
     end
 
     if !params[:delivery].blank? && params[:delivery] != "0"
       query_condition[0] += " AND pricings.delivery_time <= ?"
-      query_condition.push  @delivery
+      query_condition.push @delivery
     end
 
     @gigs = Gig
-               .select("gigs.id, gigs.title, gigs.user_id, MIN(pricings.price) AS price ")
-               .joins(:pricings)
-               .where(query_condition)
-               .group("gigs.id")
-               .order(@sort)
-               .page(params[:page])
-               .per(6)
+      .select("gigs.id, gigs.title, gigs.user_id, MIN(pricings.price) AS price ")
+      .joins(:pricings)
+      .where(query_condition)
+      .group("gigs.id")
+      .order(@sort)
+      .page(params[:page])
+      .per(6)
+  end
+
+  def calendar
+    params[:start_date] ||= Date.current.to_s
+
+    start_date = Date.parse(params[:start_date])
+    first_of_month = (start_date - 1.month).beginning_of_month
+    end_of_month = (start_date + 1.month).end_of_month
+
+    @orders = Order.where("seller_id = ? AND status = ? AND due_date BETWEEN ? AND ? ",
+                          current_user.id,
+                          Order.statuses[:inprogress],
+                          first_of_month,
+                          end_of_month)
   end
 end

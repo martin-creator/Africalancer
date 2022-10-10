@@ -14,8 +14,24 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js'></script>
 
 <script>
+
+
 document.addEventListener('DOMContentLoaded', function() {
+    var getQueryParam = function(params){
+    var found,
+        item = window.location.search.substr(1).split("=");
+
+        console.log(item);
+
+    if (params == item[0]){
+        found = item[1]
+    }
+
+    return found;
+}
+
 $(function(){
+    var start_date = getQueryParam('start_date') ? new Date(getQueryParam('start_date')) : new Date();
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -23,12 +39,20 @@ $(function(){
             left: 'prev, next',
             right: 'dayGridMonth, listMonth'
         },
-
+        defaultDate: start_date, 
         plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
         defaultView: 'dayGridMonth'
     });
 
     calendar.render();
+
+    $('.fc-prev-button').on('click', function(){
+        window.location.search = 'start_date' + calendar.state.currentDate.toISOString().split("T")[0]
+    });
+
+     $('.fc-next-button').on('click', function(){
+        window.location.search = 'start_date' + calendar.state.currentDate.toISOString().split("T")[0]
+    })
 });
 
 })
