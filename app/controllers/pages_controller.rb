@@ -66,4 +66,8 @@ class PagesController < ApplicationController
                           first_of_month,
                           end_of_month)
   end
+
+  def plans
+    @plans = Stripe::Plan.list(product: ENV["product_id"])
+  end
 end
