@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   put '/offers/:id/accept', to: 'offers#accept', as:  'accept_offer'
   put '/offers/:id/reject', to: 'offers#reject', as:  'reject_offer'
 
+  delete '/users/remove_subscription', to: 'users#remove_subscription', as: 'remove_subscription'
+
   mount ActionCable.server => '/cable'
 
   resources :gigs do
