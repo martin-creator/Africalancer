@@ -34,14 +34,14 @@ To this end, it is clear that Airlancer gains pride in leading the race to  prov
 
 ### 1. Backend Dependencies
 Our tech stack includes the following:
-- Ruby - version 2.5.5
-- Rails - version 5.0.3
-- Sqlite3 (Database)
+- Ruby - version 2.6.2
+- Rails - version 6.0.6
+- Postgress (Database)
 - Check the [Gemfile](./Gemfile) for other dependencies. You should be careful when changing any   gem versions as this  can break the application. 
 
 ### 2. Frontend Dependencies
 Our tech stack includes the following:
-- Bootstrap -version 3.0.0
+- Bootstrap -version 4.0.0
 - Javascript-jquery
 - HTML
 - CSS
@@ -51,27 +51,31 @@ Our tech stack includes the following:
 
 Ready features:
 
-- Authentication with full name
-- Transactional email
-- Gravatar profile Image
-- Notification with toastr
-- Facebook Social authentication
-- User profile page
-- Edit profile page
-- Photo upload/removal from Amazon S3 bucket
-- Room creation/listing/update
-- Google maps room location with marker & infowindow
-- Nearby rooms on room show/listing page
-- Manage guest reservations(Book, Approve)
-- Guest and Host review system
-- Location search function
-- Search autocompletion
-- Search  advanced filters with AJAX features 
-- Host Dashboard to manage rooms
-- Host Calendar
-- SMS phone verification
-- Instant/Request Booking 
-- Stripe payments
+- Verifying identity with social
+- User Profile features (avatar, bio, location, etc) just like Fiverr
+- User Dashboard managing all of jobs, requests and offers
+- Posting job in steps (including how to use ActionText with drag and drop photos)
+- Creating requests for freelancers
+- Making offers to clients' requests
+- Managing both Buying and Selling orders
+- Accept/Reject multiple offers
+- User settings for Payment and Payout methods
+- Earning Dashboard listing all history transactions for revenue and expenses
+- Sending SMS Notification when a seller got new sales
+- User identification with SMS (via mobile #) 
+- Credit Card processing with Stripe when buying a service
+- Build your own Wallet system handling income and expense
+- Build the Super Admin Dashboard (back-end) monitoring everything like Categories, Users, Jobs, for the whole platform
+- Super Admin can approve/reject Withdraw requests from sellers
+- Super Admin can view the Wallet history of specific users
+- Especially, the Escrow System that keeps track of funds per user and payout accordingly via Paypal API
+- Real-time Private Message with ActionCable
+- Attaching files to the conversation between sellers and buyers
+- Monthly Subscription Business system
+- Create Subscription Plans with $ via Stripe API
+- SuperHandle events via Stripe webhooks like subscribing, cancelling, etc
+- SuperSmart Calendar for monitoring job deadline with notification
+
 
 
 
