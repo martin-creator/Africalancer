@@ -81,10 +81,11 @@ Ready features:
 
 ## Screenshots
 
-![Imgur](https://i.imgur.com/ZCJCvGr.png)
-![Imgur](https://i.imgur.com/sP1KzeV.png)
-![Imgur](https://i.imgur.com/KYnMtdW.png)
-![Imgur](https://i.imgur.com/0C4Hk7i.png)
+![photo](/images/fiver-1.png)
+![photo](/images/fiver-2.png)
+![photo](/images/fiver-3.png)
+![photo](/images/fiver-4.png)
+![photo](/images/fiver-5.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
