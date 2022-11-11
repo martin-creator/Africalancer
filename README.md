@@ -23,10 +23,10 @@
 
 Today, more than 60% of Africa’s population is under the age of 25. By 2030, young Africans are expected to constitute 42% of global youth.  This is a great work force  that  can propel  the future of the continent forward if only we can  create  networking opportunities  for our youth to grow their skills.  In Africa, we dont have infrastructure to supporyt the connectintu of talent and opportunity that is awesome. 
 
-Africalancer comes in  to provide infrastructure to connect talent and opportunity to propele Africa's economic prosperity.  Our UX/UI from the very start takes into account the local digital literacy among our prospective user and therefore it is very easy for us to negotiate all this in all that the students are doing to push for prosperity in  our endevours.  Additionally, we understand that mononloy had greatly affected the tway wages that have been given to the owne, that is our our platormf allows people to sent their own rnete  so that they gett a fair payment of the work that they are doing. On the otyher bhard, it allow alowos entrepre to have a vast access to people ythat can access the payments so that yehye are able to seek a wide variryruy opf people to be used in the businesses. 
+Africalancer comes in  to provide infrastructure to connect talent and opportunity to catalayze Africa's economic prosperity.  Our UX/UI from the very start takes into account the local digital literacy among our prospective users.  Additionally,  we enable our users to create wages which enables them to create fair deals that would otherwise be hard in realife. We also create  a space for  business owners to access  diverse talent for their jobs. 
 
-To this end, it is clear that AirMartin gains pride in leading the race to increase the monthly income of East Africans. At AirMartin, we radiate economic inclusion!
 
+To this end, it is clear that Airlancer gains pride in leading the race to  provide infrastructure for Africa's digital economy.
 
 
 
