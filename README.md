@@ -91,7 +91,7 @@ Ready features:
 
 ## Setup
 
-* This project is built on ruby 2.5.5 and rails 5.0.3, if you using Ubuntu, follow the steps below to install rails:
+* This project is built on ruby 2.6.2 and rails 6.0.6, if you using Ubuntu, follow the steps below to install rails:
 ``` 
 1 - sudo apt update #update system repos
 2 - sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev #ruby libraries and compilers
@@ -109,8 +109,8 @@ Ready features:
 10 - gem install bundler # install bundler 
 10 - gem install rails -v @version number # install rails
 11 - rails -version  # check the rails version
-12 - git clone @airmartin git repo
-13 - cd @airmartin directory
+12 - git clone @africalancer git repo
+13 - cd @africalancer directory
 14 - bundle # install gem dependences
 15 - rails start # start your rails application
 
@@ -121,7 +121,7 @@ Incase you get any errors during installation, you can delete the **Gemfile.lock
 
 ## Usage
 
-This project is a template for many business models  that have booking,  review, payments, and location in the functionality.  It is therefore very possible for anyone to use it as a starting point to build a startup  to improve   lives in your community and even your own life!
+This project is a template for  any marketplace business models  that have booking,  review, payments, and job creation in the functionality.  It is therefore very possible for anyone to use it as a starting point to build a startup  to improve   lives in your community and even your own life!
 
 
 ## Project Status
@@ -135,12 +135,12 @@ Room for improvement:
 - Refactoring code to follow DRY & KISS principles
 - Upgrading codebase to  newer ruby and rails  versions
 - Include documentation in ruby and html files
+- Clean code to remove any comments
 
 To do:
-- Complete stripe setup to support revenue splitting
-- Create revenue dashboard
-- Add message and notification feature for communication between host and guest
-- Build a mobile application  version of the website.
+- Prepare app for deployment
+- Integrate mobile money payments
+- Include online status messaging functionality
 
 
 ## Acknowledgements
