@@ -91,7 +91,7 @@ Ready features:
 
 ## Setup
 
-* This project is built on ruby 2.6.2 and rails 6.0.6, if you using Ubuntu, follow the steps below to install rails:
+* This project was built on ruby 2.6.2 and rails 6.0.6, if you using Ubuntu, follow the steps below to install rails:
 ``` 
 1 - sudo apt update #update system repos
 2 - sudo apt install git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev #ruby libraries and compilers
