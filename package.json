@@ -17,6 +17,7 @@
     "jquery": "^3.6.1",
     "moment": "^2.29.4",
     "noty": "^3.2.0-beta-deprecated",
+    "package-lock.json": "^1.0.0",
     "raty-js": "2.9.0",
     "toastr": "^2.1.4",
     "trix": "^1.2.0",
