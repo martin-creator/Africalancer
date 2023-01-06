@@ -78,8 +78,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: Africalancer_production
+#   username: Africalancer
+#   password: <%= ENV['AFRICALANCER_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: Africalancer_production
-  username: Africalancer
-  password: <%= ENV['AFRICALANCER_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
+  port: 5432
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
