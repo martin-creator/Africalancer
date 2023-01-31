@@ -3,7 +3,7 @@
 > The pandemic exposed that Africa's lack of digital work infrastructure has the potential to disrupt the way work was actually working.  We need to creates digital spaces to network and create projects outside the conventional four cournes of the offices/classroom.   The lack of digital work infrastructure has led to scenarios where talent is  equally distributed however, opportunity  is not. At Africalancer, we hope to change this narrative by creating  leveled plaform for talent to connect with opportunity. 
 
 
-> Live demo [Project will soon be moved to  the cloud](#). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [Live Application Demo](https://africalancer.herokuapp.com/). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
